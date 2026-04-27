@@ -28,3 +28,13 @@ O principal objetivo técnico deste projeto é a implementação prática de **P
 1. Clone este repositório:
    ```bash
    git clone [https://github.com/SEU_USUARIO/spring-boot-product-manager.git](https://github.com/SEU_USUARIO/spring-boot-product-manager.git)
+
+2. Acesse a pasta do projeto através do terminal.
+
+3. Inicie o servidor Spring Boot usando o Maven Wrapper:
+ ```./mvnw spring-boot:run
+
+4. Abra o seu navegador e acesse a interface gráfica em:
+ ```http://localhost:8080
+
+Desenvolvido por Arthur Mendes Entsev.
