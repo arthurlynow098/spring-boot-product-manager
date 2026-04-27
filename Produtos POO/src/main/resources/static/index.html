@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de Produtos - Arthur Mendes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sistema de <span>Produtos</span></h1>
+
+        <div class="form-panel">
+            <div class="form-title" id="form-title">Cadastrar Novo Produto</div>
+            
+            <input type="hidden" id="prod-id">
+            
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Tipo de Produto</label>
+                    <select id="tipo-produto" onchange="alternarCampoBeneficio()">
+                        <option value="normal">Produto Padrão</option>
+                        <option value="especial">Produto Especial (VIP)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Nome do Produto</label>
+                    <input type="text" id="nome" placeholder="Ex: Monitor UltraWide" required>
+                </div>
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Preço (R$)</label>
+                    <input type="number" id="preco" placeholder="Ex: 1500.00" step="0.01" required>
+                </div>
+                <div class="input-group" id="group-beneficio" style="display: none;">
+                    <label style="color: var(--warning);">Benefício Exclusivo</label>
+                    <input type="text" id="beneficio" placeholder="Ex: 2 Anos de Garantia">
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-secondary" onclick="limparFormulario()">Cancelar</button>
+                <button class="btn btn-primary" onclick="salvarProduto()">Salvar Produto</button>
+            </div>
+        </div>
+
+        <div class="grid" id="grid-produtos"></div>
+    </div>
+
+    <script>
+        const API_URL = '/api/produtos';
+
+        function alternarCampoBeneficio() {
+            const tipo = document.getElementById('tipo-produto').value;
+            document.getElementById('group-beneficio').style.display = tipo === 'especial' ? 'flex' : 'none';
+        }
+
+        async function carregarProdutos() {
+            try {
+                const res = await fetch(API_URL);
+                const produtos = await res.json();
+                const grid = document.getElementById('grid-produtos');
+                grid.innerHTML = '';
+
+                if(produtos.length === 0) {
+                    grid.innerHTML = '<p style="text-align: center; color: #9ca3af; width: 100%;">Nenhum produto cadastrado no momento.</p>';
+                    return;
+                }
+
+                produtos.forEach(prod => {
+                    const isEspecial = 'beneficio' in prod && prod.beneficio !== null;
+                    const classCard = isEspecial ? 'card especial' : 'card';
+                    const tagHtml = isEspecial ? `<div class="tag">⭐ ${prod.beneficio}</div>` : '';
+
+                    grid.innerHTML += `
+                        <div class="${classCard}">
+                            <div class="card-header">
+                                <h3>📦 ${prod.nome}</h3>
+                                <div class="card-price">R$ ${prod.preco.toFixed(2)}</div>
+                                ${tagHtml}
+                            </div>
+                            <div class="actions">
+                                <button class="btn btn-secondary btn-sm" onclick="deletarProduto(${prod.id})">Remover</button>
+                                <button class="btn btn-warning btn-sm" onclick="prepararEdicao(${prod.id}, '${prod.nome}', ${prod.preco}, ${isEspecial ? `'${prod.beneficio}'` : 'null'})">Alterar</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) { console.error("Erro:", error); }
+        }
+
+        async function salvarProduto() {
+            const id = document.getElementById('prod-id').value;
+            const tipo = document.getElementById('tipo-produto').value;
+            
+            const produto = {
+                nome: document.getElementById('nome').value,
+                preco: parseFloat(document.getElementById('preco').value)
+            };
+
+            if (tipo === 'especial') {
+                produto.beneficio = document.getElementById('beneficio').value;
+            }
+
+            let url = API_URL;
+            if (tipo === 'especial') url += '/especial';
+            if (id) url += `/${id}`;
+
+            const metodo = id ? 'PUT' : 'POST';
+
+            await fetch(url, {
+                method: metodo,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(produto)
+            });
+
+            limparFormulario();
+            carregarProdutos();
+        }
+
+        async function deletarProduto(id) {
+            if (confirm("Deseja realmente remover este produto?")) {
+                await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+                carregarProdutos();
+            }
+        }
+
+        function prepararEdicao(id, nome, preco, beneficio) {
+            document.getElementById('prod-id').value = id;
+            document.getElementById('nome').value = nome;
+            document.getElementById('preco').value = preco;
+            
+            if (beneficio && beneficio !== 'null') {
+                document.getElementById('tipo-produto').value = 'especial';
+                document.getElementById('beneficio').value = beneficio;
+            } else {
+                document.getElementById('tipo-produto').value = 'normal';
+                document.getElementById('beneficio').value = '';
+            }
+            
+            alternarCampoBeneficio();
+            document.getElementById('form-title').innerText = "Alterar Produto";
+            document.getElementById('tipo-produto').disabled = true; // Trava a troca de tipo durante edição
+        }
+
+        function limparFormulario() {
+            document.getElementById('prod-id').value = '';
+            document.getElementById('nome').value = '';
+            document.getElementById('preco').value = '';
+            document.getElementById('beneficio').value = '';
+            document.getElementById('tipo-produto').value = 'normal';
+            document.getElementById('tipo-produto').disabled = false;
+            alternarCampoBeneficio();
+            document.getElementById('form-title').innerText = "Cadastrar Novo Produto";
+        }
+
+        carregarProdutos();
+    </script>
+</body>
+</html>
