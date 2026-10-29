@@ -1,3 +1,9 @@
+<p align="center"><img src="https://raw.githubusercontent.com/arthurlynow098/arthurlynow098/main/assets/ars-codex-banner.png" alt="Arthur Mendes Entsev — gravura alquímica minimalista" width="100%"></p>
+
+<p align="center"><sub>☉ &nbsp; ARS CODEX &nbsp; · &nbsp; spring-boot-product-manager &nbsp; ☽</sub></p>
+
+---
+
 # Spring Boot Product Manager
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
@@ -19,23 +25,22 @@ O principal objetivo técnico deste projeto é a implementação prática de **P
 * **Armazenamento em Memória:** Estrutura ágil baseada em listas estáticas para fácil execução e testes sem necessidade de configuração de banco de dados externo.
 
 ## Tecnologias Utilizadas
-* **Back-end:** Java (JDK 17+), Spring Boot, Spring Web, Maven.
+* **Back-end:** Java (JDK 17, conforme o pom.xml), Spring Boot, Spring Web, Maven.
 * **Front-end:** HTML5, CSS3, JavaScript (Fetch API).
 * **IDE Recomendada:** Visual Studio Code / IntelliJ IDEA.
 
-## Como executar o projeto na sua máquina
+## Como executar
 
-1. Clone este repositório:
-   bash
-   git clone [https://github.com/SEU_USUARIO/spring-boot-product-manager.git](https://github.com/SEU_USUARIO/spring-boot-product-manager.git)
+O projeto Maven fica em `Produtos POO`.
 
-2. Acesse a pasta do projeto através do terminal.
+```bash
+git clone https://github.com/arthurlynow098/spring-boot-product-manager.git
+cd "spring-boot-product-manager/Produtos POO"
+./mvnw spring-boot:run
+```
 
-3. Inicie o servidor Spring Boot usando o Maven Wrapper:
- ./mvnw spring-boot:run
-4. Abra o seu navegador e acesse a interface gráfica em:
- http://localhost:8080
+No Windows, use `mvnw.cmd spring-boot:run`. Acesse o endereço informado pelo servidor, normalmente `http://localhost:8080`. A compilação não foi executada nesta revisão.
 
+---
 
-
-Desenvolvido por Arthur Mendes Entsev.
+<p align="center"><sub>☿ &nbsp; Estudo · construção · evolução &nbsp; ☿</sub><br><a href="https://github.com/arthurlynow098">Perfil</a> · <a href="https://arthurentsev.vercel.app/">Portfólio</a></p>
