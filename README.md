@@ -4,21 +4,33 @@
 
 <p align="center">Gestão de produtos com API REST, painel web e modelagem orientada a objetos.</p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-C52E36?style=flat-square" alt="Java">
-  <img src="https://img.shields.io/badge/Spring%20Boot-24272E?style=flat-square" alt="Spring Boot">
-  <img src="https://img.shields.io/badge/REST%20API-24272E?style=flat-square" alt="REST API">
-</p>
+<p align="center"><img src="assets/docs/tags.svg" alt="Java · Spring Boot · REST API" width="72%"></p>
 
 <p align="center"><a href="#visão-geral">Visão geral</a> &nbsp;·&nbsp; <a href="#recursos">Recursos</a> &nbsp;·&nbsp; <a href="#como-executar">Como executar</a></p>
 
 ---
 
-## Visão geral
+<a id="explore-o-projeto"></a>
+
+![Explore o projeto](assets/docs/section-01.svg)
+
+![Mapa visual dos arquivos e responsabilidades](assets/docs/map.svg)
+
+| Área | O que você encontra | Acesso direto |
+|---|---|---|
+| **API** | Controlador de produtos. | [Abrir api →](Produtos%20POO/src/main/java/com/projetomusica/demo/controller/ProdutoController.java) |
+| **Modelo** | Classe base dos produtos. | [Abrir modelo →](Produtos%20POO/src/main/java/com/projetomusica/demo/model/Produto.java) |
+| **Painel** | Interface web servida pela aplicação. | [Abrir painel →](Produtos%20POO/src/main/resources/static/index.html) |
+
+<a id="visão-geral"></a>
+
+![Visão geral](assets/docs/section-02.svg)
 
 O diferencial técnico do projeto está na aplicação prática de **Programação Orientada a Objetos (POO)** dentro de uma API web: a classe base Produto (id, nome, preco) é estendida pela subclasse ProdutoEspecial (que adiciona o atributo exclusivo beneficio), permitindo gerenciar tanto itens convencionais quanto produtos VIP no mesmo inventário polimórfico.
 
-## Recursos
+<a id="recursos"></a>
+
+![Recursos](assets/docs/section-03.svg)
 
 | Recurso | Como funciona |
 |---|---|
@@ -27,7 +39,9 @@ O diferencial técnico do projeto está na aplicação prática de **Programaç�
 | Dashboard Web Integrado | Interface responsiva em static/index.html e static/style.css que consome a API via fetch e diferencia visualmente cards normais e VIP. |
 | Execução Zero-Config | Armazenamento em memória estruturado em coleções para execução imediata com um único comando, sem exigir banco externo. |
 
-## Tecnologias
+<a id="tecnologias"></a>
+
+![Tecnologias](assets/docs/section-04.svg)
 
 - **Java 17 & Spring Boot Web** para exposição dos endpoints REST e servidor Tomcat embutido;
 - **HTML5, CSS3 & Vanilla JavaScript** para renderização dinâmica dos cards de produtos;
@@ -52,7 +66,7 @@ flowchart LR
 ```text
 spring-boot-product-manager/
 ├── assets/
-│   └── project-animal.png          Emblema do projeto
+│   └── banner-v2.png               Banner do projeto
 ├── Produtos POO/
 │   ├── src/main/java/com/projetomusica/demo/
 │   │   ├── controller/ProdutoController.java       Endpoints REST do inventário
@@ -68,7 +82,9 @@ spring-boot-product-manager/
 
 </details>
 
-## Como executar
+<a id="como-executar"></a>
+
+![Como executar](assets/docs/section-05.svg)
 
 1. Clone o repositório e acesse o diretório Maven:
    ```powershell
@@ -82,7 +98,9 @@ spring-boot-product-manager/
    *(No Linux/macOS, utilize ./mvnw spring-boot:run).*
 3. Abra http://localhost:8080 no navegador para interagir com o dashboard e cadastrar produtos normais e especiais.
 
-## Decisões técnicas
+<a id="decisões-técnicas"></a>
+
+![Decisões técnicas](assets/docs/section-06.svg)
 
 - **Front-end servido pelo Spring Boot (resources/static):** elimina problemas de CORS durante o desenvolvimento e entrega a aplicação inteira na porta 8080.
 - **Polimorfismo na camada de modelo:** demonstra como a orientação a objetos evita duplicação de código entre categorias de produtos que compartilham a mesma identidade.
