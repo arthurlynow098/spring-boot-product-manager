@@ -1,48 +1,49 @@
 <p align="center">
-  <img src="assets/banner-v2.png" alt="spring-boot-product-manager" width="100%">
+  <img src="assets/identity/banner.png" alt="spring-boot-product-manager" width="100%">
 </p>
 
 <p align="center">Gestão de produtos com API REST, painel web e modelagem orientada a objetos.</p>
 
-<p align="center"><img src="assets/docs/tags.svg" alt="Java · Spring Boot · REST API" width="100%"></p>
 
 <p align="center"><a href="#visão-geral">Visão geral</a> &nbsp;·&nbsp; <a href="#recursos">Recursos</a> &nbsp;·&nbsp; <a href="#como-executar">Como executar</a></p>
 
----
+<p align="center"><img src="assets/identity/divider.svg" alt="" width="100%"></p>
 
 <a id="explore-o-projeto"></a>
 
-![Explore o projeto](assets/docs/section-01.svg)
+## Por onde começar
 
-![Mapa visual dos arquivos e responsabilidades](assets/docs/map.svg)
 
-<table width="100%">
-<tr><th align="left">Área</th><th align="left">O que você encontra</th><th align="left">Acesso direto</th></tr>
-<tr><td><strong>API</strong></td><td>Controlador de produtos.</td><td><a href="Produtos%20POO/src/main/java/com/projetomusica/demo/controller/ProdutoController.java">Abrir api →</a></td></tr>
-<tr><td><strong>Modelo</strong></td><td>Classe base dos produtos.</td><td><a href="Produtos%20POO/src/main/java/com/projetomusica/demo/model/Produto.java">Abrir modelo →</a></td></tr>
-<tr><td><strong>Painel</strong></td><td>Interface web servida pela aplicação.</td><td><a href="Produtos%20POO/src/main/resources/static/index.html">Abrir painel →</a></td></tr>
-</table>
+- **[API](Produtos%20POO/src/main/java/com/projetomusica/demo/controller/ProdutoController.java)** — Controlador de produtos.
+- **[Modelo](Produtos%20POO/src/main/java/com/projetomusica/demo/model/Produto.java)** — Classe base dos produtos.
+- **[Painel](Produtos%20POO/src/main/resources/static/index.html)** — Interface web servida pela aplicação.
+
 
 <a id="visão-geral"></a>
 
-![Visão geral](assets/docs/section-02.svg)
+## Visão geral
 
 O diferencial técnico do projeto está na aplicação prática de **Programação Orientada a Objetos (POO)** dentro de uma API web: a classe base Produto (id, nome, preco) é estendida pela subclasse ProdutoEspecial (que adiciona o atributo exclusivo beneficio), permitindo gerenciar tanto itens convencionais quanto produtos VIP no mesmo inventário polimórfico.
 
 <a id="recursos"></a>
 
-![Recursos](assets/docs/section-03.svg)
+## Recursos
 
-| Recurso | Como funciona |
-|---|---|
-| CRUD RESTful Completo | ProdutoController expõe rotas para listar, cadastrar, atualizar e remover produtos do inventário. |
-| Herança e Polimorfismo em POO | ProdutoEspecial extends Produto herda os atributos base e acrescenta regras e benefícios exclusivos para itens VIP. |
-| Dashboard Web Integrado | Interface responsiva em static/index.html e static/style.css que consome a API via fetch e diferencia visualmente cards normais e VIP. |
-| Execução Zero-Config | Armazenamento em memória estruturado em coleções para execução imediata com um único comando, sem exigir banco externo. |
+**CRUD RESTful Completo**<br>
+ProdutoController expõe rotas para listar, cadastrar, atualizar e remover produtos do inventário.
+
+**Herança e Polimorfismo em POO**<br>
+ProdutoEspecial extends Produto herda os atributos base e acrescenta regras e benefícios exclusivos para itens VIP.
+
+**Dashboard Web Integrado**<br>
+Interface responsiva em static/index.html e static/style.css que consome a API via fetch e diferencia visualmente cards normais e VIP.
+
+**Execução Zero-Config**<br>
+Armazenamento em memória estruturado em coleções para execução imediata com um único comando, sem exigir banco externo.
 
 <a id="tecnologias"></a>
 
-![Tecnologias](assets/docs/section-04.svg)
+## Tecnologias
 
 - **Java 17 & Spring Boot Web** para exposição dos endpoints REST e servidor Tomcat embutido;
 - **HTML5, CSS3 & Vanilla JavaScript** para renderização dinâmica dos cards de produtos;
@@ -67,7 +68,7 @@ flowchart LR
 ```text
 spring-boot-product-manager/
 ├── assets/
-│   └── banner-v2.png               Banner do projeto
+│   └── identity/banner.png               Banner do projeto
 ├── Produtos POO/
 │   ├── src/main/java/com/projetomusica/demo/
 │   │   ├── controller/ProdutoController.java       Endpoints REST do inventário
@@ -85,7 +86,7 @@ spring-boot-product-manager/
 
 <a id="como-executar"></a>
 
-![Como executar](assets/docs/section-05.svg)
+## Como executar
 
 1. Clone o repositório e acesse o diretório Maven:
    ```powershell
@@ -101,12 +102,12 @@ spring-boot-product-manager/
 
 <a id="decisões-técnicas"></a>
 
-![Decisões técnicas](assets/docs/section-06.svg)
+## Decisões técnicas
 
 - **Front-end servido pelo Spring Boot (resources/static):** elimina problemas de CORS durante o desenvolvimento e entrega a aplicação inteira na porta 8080.
 - **Polimorfismo na camada de modelo:** demonstra como a orientação a objetos evita duplicação de código entre categorias de produtos que compartilham a mesma identidade.
 
----
+<p align="center"><img src="assets/identity/divider.svg" alt="" width="100%"></p>
 
 <p align="center">
   <a href="https://github.com/arthurlynow098">GitHub</a> &nbsp;·&nbsp;
