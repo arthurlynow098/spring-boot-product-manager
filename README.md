@@ -4,7 +4,7 @@
 
 <p align="center">Gestão de produtos com API REST, painel web e modelagem orientada a objetos.</p>
 
-<p align="center"><img src="assets/docs/tags.svg" alt="Java · Spring Boot · REST API" width="72%"></p>
+<p align="center"><img src="assets/docs/tags.svg" alt="Java · Spring Boot · REST API" width="100%"></p>
 
 <p align="center"><a href="#visão-geral">Visão geral</a> &nbsp;·&nbsp; <a href="#recursos">Recursos</a> &nbsp;·&nbsp; <a href="#como-executar">Como executar</a></p>
 
@@ -16,11 +16,12 @@
 
 ![Mapa visual dos arquivos e responsabilidades](assets/docs/map.svg)
 
-| Área | O que você encontra | Acesso direto |
-|---|---|---|
-| **API** | Controlador de produtos. | [Abrir api →](Produtos%20POO/src/main/java/com/projetomusica/demo/controller/ProdutoController.java) |
-| **Modelo** | Classe base dos produtos. | [Abrir modelo →](Produtos%20POO/src/main/java/com/projetomusica/demo/model/Produto.java) |
-| **Painel** | Interface web servida pela aplicação. | [Abrir painel →](Produtos%20POO/src/main/resources/static/index.html) |
+<table width="100%">
+<tr><th align="left">Área</th><th align="left">O que você encontra</th><th align="left">Acesso direto</th></tr>
+<tr><td><strong>API</strong></td><td>Controlador de produtos.</td><td><a href="Produtos%20POO/src/main/java/com/projetomusica/demo/controller/ProdutoController.java">Abrir api →</a></td></tr>
+<tr><td><strong>Modelo</strong></td><td>Classe base dos produtos.</td><td><a href="Produtos%20POO/src/main/java/com/projetomusica/demo/model/Produto.java">Abrir modelo →</a></td></tr>
+<tr><td><strong>Painel</strong></td><td>Interface web servida pela aplicação.</td><td><a href="Produtos%20POO/src/main/resources/static/index.html">Abrir painel →</a></td></tr>
+</table>
 
 <a id="visão-geral"></a>
 
