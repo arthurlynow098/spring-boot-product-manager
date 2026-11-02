@@ -1,13 +1,11 @@
-<p align="center">
-  <img src="assets/identity/banner.png" alt="spring-boot-product-manager" width="100%">
-</p>
+<p align="center"><img src="assets/identity-v2/banner.png" alt="Product Manager — Spring Boot · API REST · produtos" width="100%"></p>
 
 <p align="center">Gestão de produtos com API REST, painel web e modelagem orientada a objetos.</p>
 
 
 <p align="center"><a href="#visão-geral">Visão geral</a> &nbsp;·&nbsp; <a href="#recursos">Recursos</a> &nbsp;·&nbsp; <a href="#como-executar">Como executar</a></p>
 
-<p align="center"><img src="assets/identity/divider.svg" alt="" width="100%"></p>
+---
 
 <a id="explore-o-projeto"></a>
 
@@ -21,7 +19,7 @@
 
 <a id="visão-geral"></a>
 
-## Visão geral
+## Sobre o projeto
 
 O diferencial técnico do projeto está na aplicação prática de **Programação Orientada a Objetos (POO)** dentro de uma API web: a classe base Produto (id, nome, preco) é estendida pela subclasse ProdutoEspecial (que adiciona o atributo exclusivo beneficio), permitindo gerenciar tanto itens convencionais quanto produtos VIP no mesmo inventário polimórfico.
 
@@ -49,8 +47,8 @@ Armazenamento em memória estruturado em coleções para execução imediata com
 - **HTML5, CSS3 & Vanilla JavaScript** para renderização dinâmica dos cards de produtos;
 - **Maven Wrapper (mvnw / mvnw.cmd)** para compilação e execução em qualquer plataforma.
 
-<details>
-<summary>Arquitetura</summary>
+## Arquitetura
+
 
 ```mermaid
 flowchart LR
@@ -60,10 +58,9 @@ flowchart LR
     D --> E["ProdutoEspecial · + Benefício VIP"]
 ```
 
-</details>
 
-<details>
-<summary>Estrutura do repositório</summary>
+## Estrutura do repositório
+
 
 ```text
 spring-boot-product-manager/
@@ -82,7 +79,6 @@ spring-boot-product-manager/
 └── README.md
 ```
 
-</details>
 
 <a id="como-executar"></a>
 
@@ -107,10 +103,16 @@ spring-boot-product-manager/
 - **Front-end servido pelo Spring Boot (resources/static):** elimina problemas de CORS durante o desenvolvimento e entrega a aplicação inteira na porta 8080.
 - **Polimorfismo na camada de modelo:** demonstra como a orientação a objetos evita duplicação de código entre categorias de produtos que compartilham a mesma identidade.
 
-<p align="center"><img src="assets/identity/divider.svg" alt="" width="100%"></p>
+---
 
 <p align="center">
   <a href="https://github.com/arthurlynow098">GitHub</a> &nbsp;·&nbsp;
   <a href="https://arthurentsev.vercel.app/">Portfólio</a> &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/entsevarthur/">LinkedIn</a>
 </p>
+
+## Identidade visual e créditos
+
+**Bisão** — Força e estrutura para organizar o catálogo. [Logo em PNG](assets/identity-v2/logo.png).
+
+Identidade organizada a partir das artes fornecidas por Arthur Entsev. Direção visual e organização documental inspiradas em [LynowCut](https://github.com/arthurlynow098/LynowCut) e [LynowCatch](https://github.com/arthurlynow098/LynowCatch). Tipografia **Inter**, com licença SIL Open Font License em [Inter-OFL.txt](assets/identity-v2/Inter-OFL.txt).
